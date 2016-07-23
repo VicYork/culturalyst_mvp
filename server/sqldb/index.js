@@ -15,6 +15,7 @@ var db = {
 };
 
 // Insert models below
+db.Images = db.sequelize.import('../api/images/images.model');
 db.Thing = db.sequelize.import('../api/thing/thing.model');
 db.User = db.sequelize.import('../api/user/user.model');
 

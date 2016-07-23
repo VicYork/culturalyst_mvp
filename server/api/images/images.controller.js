@@ -1,16 +1,16 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/things              ->  index
- * POST    /api/things              ->  create
- * GET     /api/things/:id          ->  show
- * PUT     /api/things/:id          ->  update
- * DELETE  /api/things/:id          ->  destroy
+ * GET     /api/image/              ->  index
+ * POST    /api/image/              ->  create
+ * GET     /api/image/:id          ->  show
+ * PUT     /api/image/:id          ->  update
+ * DELETE  /api/image/:id          ->  destroy
  */
 
 'use strict';
 
 // import _ from 'lodash';
-import {Thing} from "../../sqldb";
+import {Images} from "../../sqldb";
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -58,16 +58,16 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Things
+// Gets a list of Imagess
 export function index(req, res) {
-  return Thing.findAll()
+  return Images.findAll()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Thing from the DB
+// Gets a single Images from the DB
 export function show(req, res) {
-  return Thing.find({
+  return Images.find({
     where: {
       _id: req.params.id
     }
@@ -77,19 +77,19 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
-// Creates a new Thing in the DB
+// Creates a new Images in the DB
 export function create(req, res) {
-  return Thing.create(req.body)
+  return Images.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Updates an existing Thing in the DB
+// Updates an existing Images in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  return Thing.find({
+  return Images.find({
     where: {
       _id: req.params.id
     }
@@ -100,9 +100,9 @@ export function update(req, res) {
     .catch(handleError(res));
 }
 
-// Deletes a Thing from the DB
+// Deletes a Images from the DB
 export function destroy(req, res) {
-  return Thing.find({
+  return Images.find({
     where: {
       _id: req.params.id
     }
