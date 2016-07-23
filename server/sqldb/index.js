@@ -10,8 +10,7 @@ import Sequelize from 'sequelize';
 
 var db = {
   Sequelize,
-  //sequelize: new Sequelize(config.sequelize.uri, config.sequelize.options)
-  sequelize: new Sequelize('postgres://VicYork:ZZ3th341233@localhost:5432/cdt')
+  sequelize: new Sequelize(config.sequelize.uri, config.sequelize.options)
 };
 
 // Insert models below
