@@ -297,6 +297,38 @@ export function launchArtistProfile (req, res, next) {
 };
 
 
+export function showResults (req, res, next) {
+  console.log('inside backend');
+  var query;
+  if (req.params.submedium !== 'undefined' && req.params.submedium !== 'null'){
+    query = {genre: req.params.submedium};
+    console.log(req.params.submedium);
+  } else {
+    console.log(req.params.medium);
+    query = {medium: req.params.medium}
+  }
+
+  User.findAll({
+      where: query
+    })
+    .then(function(users) {
+      if (!users) {
+        console.log('No users');
+        res.status(404).end();
+      }
+      var array = [];
+      users.forEach(function(profile_pic){
+        array.push(profile_pic);
+      })
+      res.json(array);
+
+    })
+    .catch(function(err) {
+      next(err);
+      console.log(err);
+    });
+};
+
 
 /**
  * Authentication callback

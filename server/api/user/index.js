@@ -20,5 +20,7 @@ router.put('/:id/updateArtistProperties', auth.isAuthenticated(), controller.upd
 router.put('/:id/updateArtistStory', auth.isAuthenticated(), controller.updateArtistStory);
 router.put('/:id/launchArtistProfile', auth.isAuthenticated(), controller.launchArtistProfile);
 
+//Discovery Routes (DiscoveryCtrl)
+router.get('/discovery/:medium/:submedium', controller.showResults);
 
 module.exports = router;

@@ -56,9 +56,10 @@ md-list-item > button {
 #nav_logo img{
   display: flex;
   flex-direction: row;
-  width:180px;
+  width:148px;
   justify-content: center;
   align-content: center;
+  margin-left: 6px;
 }
 
 /*Leftside of navbar*/
@@ -170,7 +171,8 @@ Styling textAngular
   /*Increases size of logo on big screens*/
   #nav_logo img {
     padding-top: 3px;
-    width: 250px;
+    width: 180px;
+    margin-left: 35px;
   }
   /*Right navbar placeholder size to equalize spacing when signed in*/
   #navbar_right_placeholder {

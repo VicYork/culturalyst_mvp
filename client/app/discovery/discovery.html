@@ -1,1 +1,33 @@
-<div>This is the discovery view.</div>
+<div class="page_container">
+	<div class="discovery_hero">
+		
+	  <md-select class="media_submedia" ng-model="selectedMedium" placeholder="Medium" md-on-close="loadSubMediums(selectedMedium); getArtists()" ng-selected="selectedMedium">
+	    <md-option ng-value="medium" ng-repeat="medium in mediums">{{ medium.name }}</md-option>
+	  </md-select>
+	  	
+	  <md-select class="media_submedia" ng-model="selectedSubmedium" placeholder="Genre" md-on-close="test(); getArtists()" ng-selected="selectedSubmedium">
+	  	<md-option ng-value="submedium" ng-repeat="submedium in submedia">{{submedium}}</md-option>
+	  </md-select>
+	</div>
+	<div class="query_results">
+		<div  ng-repeat="artist in artists">
+			 <md-card class="query_card">
+	        <img ng-src="../../assets/images/cover_4.14.1622.png" class="md-card-image" alt="Washed Out">
+	        <md-card-actions layout="row" layout-align="end center">
+	        	{{artist.name}}
+	        </md-card-actions>
+	      </md-card>
+		</div>
+	</div>
+
+</div>	
+
+
+
+
+
+<!-- <div class="col-xs-6">
+    <select class="form-control-medium" ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()" style="width:400px">
+                          <option value="" selected disabled>Genre</option>        
+                        </select>
+                      </div> -->

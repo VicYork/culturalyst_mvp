@@ -51,6 +51,7 @@ var app = angular.module('mvpApp')
 app.controller('MainController', ['$scope','Auth', '$mdBottomSheet',
   function($scope, Auth, $mdBottomSheet) {
 
+  $scope = this;
   $scope.isLoggedIn = function(){
     return Auth.isLoggedIn();
   }
@@ -63,6 +64,8 @@ app.controller('MainController', ['$scope','Auth', '$mdBottomSheet',
   $scope.print = function(){
     console.log('print');
   }
+
+  this.test ='hello world';
 
   $scope.demo = {
         isOpen: false,
